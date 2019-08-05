@@ -1,4 +1,4 @@
-const Transaction = require( '../models/transactions' )
+const Transaction = require( '../models/Transactions' )
 
 const controller = {}
 
@@ -9,7 +9,10 @@ const controller = {}
  * @param next
  */
 controller.get = ( req, res, next ) => {
-  res.json( { dude: 'what' } )
+  Transaction.find( {}, function ( err, data ) {
+    if ( err ) return res.status( 500 ).json( { err } )
+    res.status( 200 ).json( data )
+  } )
 }
 
 /**
@@ -19,7 +22,10 @@ controller.get = ( req, res, next ) => {
  * @param next
  */
 controller.getById = ( req, res, next ) => {
-  res.json( { transactionId: req.params.txId } )
+  Transaction.findById( req.params.txId, function ( err, data ) {
+    if ( err ) return res.status( 500 ).json( { err } )
+    res.status( 200 ).json( data )
+  } )
 }
 
 /**
@@ -33,7 +39,7 @@ controller.create = ( req, res, next ) => {
   const tx = new Transaction( { name } )
 
   tx.save( ( err, data ) => {
-    if ( err ) return res.status( 500 ).json( { message: err.message } )
+    if ( err ) return res.status( 500 ).json( { err } )
     res.status( 201 ).json( { data } )
   } )
 }

@@ -1,4 +1,4 @@
-const Transaction = require( '../models/Transactions' )
+const Transaction = require( '../models/transactions' )
 
 const controller = {}
 

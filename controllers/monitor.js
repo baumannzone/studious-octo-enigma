@@ -5,11 +5,18 @@ const charts = require( '../utils/monitor/charts' )
 
 const controller = {}
 
+controller.all = ( req, res, next ) => {
+  Monitor.find( {}, ( err, data ) => {
+    if ( err ) return res.status( 500 ).json( { err } )
+    res.status( 200 ).json( data )
+  } )
+}
+
 controller.charts = ( req, res, next ) => {
   res.status( 200 ).json( charts )
 }
 
-controller.all = ( req, res, next ) => {
+controller.ws = ( req, res, next ) => {
   const url = 'wss://ethstats.net/primus/?_primuscb=1565037301948-0'
   const ws = new WebSocket( url )
   const arr = []

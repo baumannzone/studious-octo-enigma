@@ -6,7 +6,7 @@ const user = 'baumannzone'
 const pass = 'y0L0sW4g'
 const url = `mongodb+srv://${user}:${pass}@cluster0-rs00m.mongodb.net/test?retryWrites=true&w=majority`
 
-mongo.connect(url, (err, client) => {
+mongo.connect(url, {useNewUrlParser: true}, (err, client) => {
   if (err) {
     console.error(err)
     return false
@@ -29,9 +29,7 @@ mongo.connect(url, (err, client) => {
 })
 
 
-
 router.get('/', function (req, res, next) {
-  console.log('duderino')
   res.json({data: 'DUDE WHAT'})
 })
 

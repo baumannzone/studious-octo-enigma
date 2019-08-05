@@ -1,4 +1,4 @@
-# Prueba Mongo (mlab) + Node (Express)
+# Node (Express) + Mongo
 
 Generado con: `express --no-view`
 

@@ -2,23 +2,40 @@ const Transaction = require( '../models/transactions' )
 
 const controller = {}
 
+/**
+ * Obtiene todas las tx
+ * @param req
+ * @param res
+ * @param next
+ */
 controller.get = ( req, res, next ) => {
   res.json( { dude: 'what' } )
 }
 
+/**
+ * Obtiene una tx
+ * @param req
+ * @param res
+ * @param next
+ */
 controller.getById = ( req, res, next ) => {
   res.json( { transactionId: req.params.txId } )
 }
 
+/**
+ * Guarda una tx en la BD
+ * @param req
+ * @param res
+ * @param next
+ */
 controller.create = ( req, res, next ) => {
-  console.log( req.body )
-  // const tx = new Transaction( { name: 'Silence' } )
-  //
-  // tx.save( function ( err, data ) {
-  //   if ( err ) return console.error( err )
-  //   console.log( data )
-  // } )
-  res.json( { dude: 'whattt?' } )
+  const name = req.body.name
+  const tx = new Transaction( { name } )
+
+  tx.save( ( err, data ) => {
+    if ( err ) return res.status( 500 ).json( { message: err.message } )
+    res.status( 201 ).json( { data } )
+  } )
 }
 
 

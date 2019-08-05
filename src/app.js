@@ -15,7 +15,14 @@ app.use( express.urlencoded( { extended: false } ) )
 app.use( cookieParser() )
 
 
-app.use( '/', routes )
+app.use( '/api', routes )
+
+/**
+ * Not found
+ */
+app.use( '*', ( req, res ) => {
+  res.status( 404 ).send( '404 - Not found' )
+} )
 
 
 module.exports = app

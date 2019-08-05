@@ -1,10 +1,6 @@
 const mongoose = require( 'mongoose' )
 const Schema = mongoose.Schema
 
-/**
- * Transactions schema
- */
-
 const options = { timestamps: true }
 
 const TransactionsSchema = new Schema( {

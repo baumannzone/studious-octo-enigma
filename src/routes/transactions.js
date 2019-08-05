@@ -1,11 +1,11 @@
 const express = require( 'express' )
 const router = express.Router()
 
-const Transaction = require( '../models/transactions' )
+const txControllers = require( '../controllers/transactions' )
 
-router.get( '/', function ( req, res, next ) {
-  const data = {}
-  res.json( data )
-} )
+router.get( '/get', txControllers.get )
+router.get( '/get/:txId', txControllers.getById )
+router.post( '/create', txControllers.create )
+
 
 module.exports = router

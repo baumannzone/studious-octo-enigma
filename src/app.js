@@ -1,17 +1,20 @@
-var express = require('express')
-var path = require('path')
-var cookieParser = require('cookie-parser')
-var logger = require('morgan')
+const express = require('express')
+const path = require('path')
+const cookieParser = require('cookie-parser')
+const logger = require('morgan')
+const routes = require('./routes')
 
-var usersRouter = require('./routes')
 
-var app = express()
+const app = express()
+
 
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
 
-app.use('/', usersRouter)
+
+app.use('/', routes)
+
 
 module.exports = app

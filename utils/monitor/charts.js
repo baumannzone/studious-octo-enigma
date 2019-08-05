@@ -679,8 +679,4 @@ const chartsJs = {
   }
 }
 
-const data = {
-  chartsJs
-}
-
-module.exports = data
+module.exports = chartsJs

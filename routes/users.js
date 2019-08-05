@@ -23,16 +23,14 @@ mongo.connect(url, (err, client) => {
       return false
     }
     console.log('<<<<<<<<<<<< result >>>>>>>>>>>>')
-    console.log(result)
+    console.log(result.ops)
   })
 
 })
 
 
-/* GET users listing. */
+
 router.get('/', function (req, res, next) {
-
-
   console.log('duderino')
   res.json({data: 'DUDE WHAT'})
 })

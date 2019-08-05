@@ -11,7 +11,7 @@ Generado con: `express --no-view`
    create : public/stylesheets/style.css
    create : routes/
    create : routes/index.js
-   create : routes/users.js
+   create : routes/index.js
    create : public/index.html
    create : app.js
    create : package.json

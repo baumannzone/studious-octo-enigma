@@ -1,4 +1,4 @@
-# Prueba Mongo (mlab) + Node (Express)
+# Node (Express) + Mongo
 
 Generado con: `express --no-view`
 
@@ -18,10 +18,26 @@ Generado con: `express --no-view`
    create : bin/
    create : bin/www
 
-   install dependencies:
-     $ npm install
-
-   run the app:
-     $ DEBUG=mongo-node-example:* npm start
-     
 ```
+
+## Install
+
+```
+➜ cd src/
+
+➜ npm install
+```
+
+## Run
+
+#### Nodemon
+```
+➜ DEBUG=mongo-node-example:* nodemon ./bin/www
+```
+
+#### Node
+```
+➜ DEBUG=mongo-node-example:* npm start
+```
+
+     

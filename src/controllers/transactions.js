@@ -9,7 +9,7 @@ const controller = {}
  * @param next
  */
 controller.get = ( req, res, next ) => {
-  Transaction.find( {}, function ( err, data ) {
+  Transaction.find( {}, ( err, data ) => {
     if ( err ) return res.status( 500 ).json( { err } )
     res.status( 200 ).json( data )
   } )
@@ -22,7 +22,7 @@ controller.get = ( req, res, next ) => {
  * @param next
  */
 controller.getById = ( req, res, next ) => {
-  Transaction.findById( req.params.txId, function ( err, data ) {
+  Transaction.findById( req.params.txId, ( err, data ) => {
     if ( err ) return res.status( 500 ).json( { err } )
     res.status( 200 ).json( data )
   } )

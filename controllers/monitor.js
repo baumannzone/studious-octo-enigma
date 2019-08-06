@@ -12,8 +12,44 @@ controller.all = ( req, res, next ) => {
   } )
 }
 
+controller.pending = ( req, res, next ) => {
+  Monitor.find( { action: 'pending' } ).limit( 20 )
+    .then( ( data ) => {
+      res.status( 200 ).json( data )
+    } )
+    .catch( ( err ) => {
+      res.status( 500 ).json( { err } )
+    } )
+}
+
+controller.stats = ( req, res, next ) => {
+  Monitor.find( { action: 'stats' } ).limit( 20 )
+    .then( ( data ) => {
+      res.status( 200 ).json( data )
+    } )
+    .catch( ( err ) => {
+      res.status( 500 ).json( { err } )
+    } )
+}
+
+controller.block = ( req, res, next ) => {
+  Monitor.find( { action: 'block' } ).limit( 20 )
+    .then( ( data ) => {
+      res.status( 200 ).json( data )
+    } )
+    .catch( ( err ) => {
+      res.status( 500 ).json( { err } )
+    } )
+}
+
 controller.charts = ( req, res, next ) => {
-  res.status( 200 ).json( charts )
+  Monitor.find( { action: 'charts' } ).limit( 20 )
+    .then( ( data ) => {
+      res.status( 200 ).json( data )
+    } )
+    .catch( ( err ) => {
+      res.status( 500 ).json( { err } )
+    } )
 }
 
 controller.ws = ( req, res, next ) => {

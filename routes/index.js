@@ -1,10 +1,10 @@
 const express = require( 'express' )
 const router = express.Router()
 
-const transactions = require( './transactions' )
 const monitor = require( './monitor' )
+const transactions = require( './transactions' )
 
-router.use( '/transactions', transactions )
 router.use( '/monitor', monitor )
+router.use( '/transactions', transactions )
 
 module.exports = router

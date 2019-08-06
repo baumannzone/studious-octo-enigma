@@ -25,16 +25,16 @@ app.use( /\//, ( req, res, next ) => {
         `${ basePath }/`
       ],
       monitor: [
+        `${ basePath }/monitor/all`,
         `${ basePath }/monitor/block`,
         `${ basePath }/monitor/stats`,
         `${ basePath }/monitor/charts`,
-        `${ basePath }/monitor/pending`,
-        `${ basePath }/monitor/all`,
+        `${ basePath }/monitor/pending`
       ],
       transactions: [
         `${ basePath }/transactions`,
         `${ basePath }/transactions/:transactionId`,
-        `${ basePath }/transactions/create`,
+        `${ basePath }/transactions`
       ]
     }
   } )

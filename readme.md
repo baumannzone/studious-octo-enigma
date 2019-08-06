@@ -9,8 +9,6 @@ $ npm install express-generator -g
 ## Install
 
 ```
-➜ cd src/
-
 ➜ npm install
 ```
 

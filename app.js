@@ -13,11 +13,10 @@ app.use( express.json() )
 app.use( express.urlencoded( { extended: false } ) )
 app.use( cookieParser() )
 
+// Routes
 app.use( '/api/v1', routes )
 
-/**
- * RegEx que hace match solo cuando la ruta es `/`
- */
+// RegEx que hace match solo cuando la ruta es `/`
 app.use( /\//, ( req, res, next ) => {
   const basePath = '/api/v1'
   res.status( 200 ).json( {
@@ -41,6 +40,7 @@ app.use( /\//, ( req, res, next ) => {
   } )
 } )
 
+// Default
 app.use( '*', ( req, res ) => {
   res.status( 404 ).json( { message: 'Not Found' } )
 } )
